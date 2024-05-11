@@ -23,6 +23,9 @@
 \usepackage{eso-pic} % used by \AddToShipoutPicture
 \RequirePackage{fancyhdr}
 \RequirePackage{natbib}
+\RequirePackage{lineno} % for line numbering
+
+\linenumbers % enable by default
 
 % modification to natbib citations
 \setcitestyle{authoryear,round,citesep={;},aysep={,},yysep={;}}
@@ -33,7 +36,7 @@
 % Define colmfinal, set to true if colmfinalcopy is defined
 \newif\ifcolmfinal
 \colmfinalfalse
-\def\colmfinalcopy{\colmfinaltrue}
+\def\colmfinalcopy{\colmfinaltrue \nolinenumbers} % disable for final copy
 \font\colmtenhv  = phvb at 8pt
 
 % Specify the dimensions of each page
