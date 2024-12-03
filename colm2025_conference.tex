@@ -1,16 +1,19 @@
 
 \documentclass{article} % For LaTeX2e
-\usepackage{colm2024_conference}
+\usepackage[submission]{colm2025_conference}
 
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
+
+\usepackage{lineno}
+
 \definecolor{darkblue}{rgb}{0, 0, 0.5}
 \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
 
 
-\title{Formatting Instructions for COLM 2024 \\ Conference Submissions}
+\title{Formatting Instructions for COLM 2025 \\ Conference Submissions}
 
 % Authors must not appear in the submitted version. They should be hidden
 % as long as the \colmfinalcopy macro remains commented out below.
@@ -50,6 +53,9 @@ Address \\
 % \colmfinalcopy % Uncomment for camera-ready version, but NOT for submission.
 \begin{document}
 
+\ifcolmsubmission
+\linenumbers
+\fi
 
 \maketitle
 
@@ -61,22 +67,18 @@ line spaces precede the abstract. The abstract must be limited to one
 paragraph.
 \end{abstract}
 
-\section{Submission of conference papers to COLM 2024}
+\section{Submission of conference papers to COLM 2025}
 
 COLM requires electronic submissions, processed by
 \url{https://openreview.net/}. See COLM's website for more instructions.
-
-If your paper is ultimately accepted, the statement {\tt
-  {\textbackslash}colmfinalcopy} should be inserted to adjust the
-format to the camera ready requirements.
-
-The format for the submissions is a variant of the NeurIPS format.
+The format for the submissions is a variant of the NeurIPS and ICLR formats.
 Please read carefully the instructions below, and follow them
 faithfully.
 
+
 \subsection{Style}
 
-Papers to be submitted to COLM 2024 must be prepared according to the
+Papers to be submitted to COLM 2025 must be prepared according to the
 instructions presented here.
 
 %% Please note that we have introduced automatic line number generation
@@ -89,18 +91,25 @@ Authors are required to use the COLM \LaTeX{} style files obtainable at the
 COLM website. Please make sure you use the current files and
 not previous versions. Tweaking the style files may be grounds for rejection.
 
+\subsubsection{Copy Options}
+
+If your paper is ultimately accepted, the option {\tt
+  {\textbackslash}final} should be set  for the {\tt {\textbackslash}usepackage[submission]\{colm2025\_conference\}} command for the camera ready version. The {\tt submission} options is the default, and is to be used for all submissions during the review process. It also turns on the line numbers. If you wish to submit a preprint, the option {\tt preprint} should be used.
+  
+  
+
 \subsection{Retrieval of style files}
 
 The style files for COLM and other conference information are available online at:
 \begin{center}
    \url{http://www.colmweb.org/}
 \end{center}
-The file \verb+colm2024_conference.pdf+ contains these
+The file \verb+colm2025_conference.pdf+ contains these
 instructions and illustrates the
 various formatting requirements your COLM paper must satisfy.
 Submissions must be made using \LaTeX{} and the style files
-\verb+colm2024_conference.sty+ and \verb+colm2024_conference.bst+ (to be used with \LaTeX{}2e). The file
-\verb+colm2024_conference.tex+ may be used as a ``shell'' for writing your paper. All you
+\verb+colm2025_conference.sty+ and \verb+colm2025_conference.bst+ (to be used with \LaTeX{}2e). The file
+\verb+colm2025_conference.tex+ may be used as a ``shell'' for writing your paper. All you
 have to do is replace the author, title, abstract, and text of the paper with
 your own.
 
@@ -150,7 +159,7 @@ heading and 1/2~line space after the second level heading.
 
 \subsubsection{Headings: third level}
 
-Third level headings are in lower case (except for first word and proper nouns),
+Third level headings are in lower case (except for first word and proper nouns), bold face, italics, 
 flush left and in point size 10. One line space before the third level
 heading and 1/2~line space after the third level heading.
 
@@ -184,8 +193,10 @@ Precede the footnote with a horizontal rule of 2~inches
 
 All artwork must be neat, clean, and legible. Lines should be dark
 enough for purposes of reproduction; art work should not be
-hand-drawn. Any text within the figure must be readable. We recommend not using font sizes below {\tt small}. We recommend to use vector representations (e.g., pdf or svg) for all diagrams. The figure number and caption always appear after the figure. Place one line space before the figure caption, and one line space after the figure. The figure caption is lower case (except for first word and proper nouns); figures are numbered consecutively.
+hand-drawn. Any text within the figure must be readable. We ask to not use font sizes below {\tt small}. We strongly recommend to use vector representations (e.g., pdf or svg) for all diagrams. 
+We strongly recommend positioning all figures at the top or bottom of the page.
 
+The figure number and caption always appear below the figure. Place one line space before the figure caption, and one line space after the figure. The figure caption is lower case (except for first word and proper nouns); figures are numbered consecutively.
 Make sure the figure caption does not get separated from the figure.
 Leave sufficient space to avoid splitting the figure and figure caption.
 
@@ -193,7 +204,7 @@ You may use color figures.
 However, it is best for the
 figure captions and the paper body to make sense if the paper is printed
 either in black/white or in color.
-\begin{figure}[h]
+\begin{figure}[t]
 \begin{center}
 %\framebox[4.0in]{$\;$}
 \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
@@ -204,6 +215,7 @@ either in black/white or in color.
 \subsection{Tables}
 
 All tables must be centered, neat, clean and legible. Do not use hand-drawn tables. The table number and title always appear below the table. See Table~\ref{sample-table}. Please do not use font sizes below {\tt small} in tables. We recommend using {\tt booktabs} or a similar package to style tables. 
+We strongly recommend positioning all tables at the top or bottom of the page.
 
 Place one line space before the table title, one line space after the table title, and one line space after the table. The table title must be lowercase (except for first word and proper nouns); tables are numbered consecutively.
 
@@ -275,7 +287,7 @@ If you'd like to, you may include  a section for author contributions as is done
 in many journals. This is optional and at the discretion of the authors.
 
 \section*{Acknowledgments}
-Use unnumbered third level headings for the acknowledgments. All
+Use unnumbered first level headings for the acknowledgments. All
 acknowledgments, including those to funding agencies, go at the end of the paper.
 
 \section*{Ethics Statement}
@@ -284,8 +296,8 @@ For papers that touch on ethical issues, this section will be evaluated as part 
 
 
 
-\bibliography{colm2024_conference}
-\bibliographystyle{colm2024_conference}
+\bibliography{colm2025_conference}
+\bibliographystyle{colm2025_conference}
 
 \appendix
 \section{Appendix}
