@@ -1,3 +1,3 @@
 # Template
 
-Template and style files for CoLM 2024
+Template and style files for CoLM 2025
